@@ -2,22 +2,29 @@
   {
     "username": "super",
     "password": "super",
-    "email": "1",
+    "email": "superuser@email.com",
     "id": "1",
-    "role": "1"
+    "role": "superadmin"
   },
   {
-    "username": "2",
-    "password": "2",
-    "email": "2",
+    "username": "groupadmin",
+    "password": "groupadmin",
+    "email": "groupadmin@email.com",
     "id": "2",
-    "role": "2"
+    "role": "groupadmin"
   },
   {
-    "username": "3",
-    "password": "3",
-    "email": "3",
+    "username": "groupassis",
+    "password": "groupassis",
+    "email": "groupassis@email.com",
     "id": "3",
-    "role": "3"
+    "role": "groupassis"
+  },
+  {
+    "username": "default",
+    "password": "default",
+    "email": "default@email.com",
+    "id": "4",
+    "role": "default"
   }
 ]
