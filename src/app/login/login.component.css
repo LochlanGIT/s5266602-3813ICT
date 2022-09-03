@@ -4,10 +4,7 @@
   width: 50vw;
   margin-left: 25vw;
 }
-#email {
-  width: 30em;
-}
-#password {
+#username {
   width: 30em;
 }
 #login {
