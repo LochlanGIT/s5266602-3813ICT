@@ -3,6 +3,7 @@ var fs = require("fs");
 module.exports = function(req, res) {
   let valid = false;
   var u = req.body.username;
+  console.log(u)
 
   fs.readFile("./data/users.json", "utf8", function(err, data) {
     let userArray = JSON.parse(data);

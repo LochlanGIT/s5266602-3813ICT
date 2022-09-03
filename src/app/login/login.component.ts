@@ -8,6 +8,10 @@ import { AppComponent} from "../app.component";
 
 const BACKEND_URL = 'http://localhost:3000';
 
+class User {
+  username: string = "";
+  password: any;
+}
 
 @Component({
   providers: [AppComponent],
@@ -16,12 +20,12 @@ const BACKEND_URL = 'http://localhost:3000';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username = "";
+  user: User = {username: "", password: ""};
 
   constructor(private router: Router, private httpClient: HttpClient, private comp: AppComponent) {}
   ngOnInit() {}
   public loginfunc() {
-    this.httpClient.post(BACKEND_URL + '/login', this.username, httpOptions)
+    this.httpClient.post(BACKEND_URL + '/login', this.user, httpOptions)
       .subscribe((data: any) => {
         if (data.ok) {
           // sessionStorage.setItem('username', this.userpwd.username);

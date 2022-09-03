@@ -7,6 +7,9 @@
 #username {
   width: 30em;
 }
+#password {
+  width: 30em;
+}
 #login {
   width: 7em;
 }
