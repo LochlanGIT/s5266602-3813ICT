@@ -1,0 +1,20 @@
+<div>
+  <h2>Group List</h2>
+  <ul>
+    <button class="btn btn-primary btn-block mb-4" (click)="sendtoroom()">Default Group</button>
+    <button class="btn btn-primary btn-block mb-4" (click)="sendtoroom()" *ngIf="isAdmin">Hidden Group</button>
+  </ul>
+  <div *ngIf="isAdmin">
+      <h2 id="loginhead2">Create New Group</h2>
+      <form id="form2">
+        <ul>
+        <div class="form-outline">
+          <label class="form-label" for="groupname">Group Name</label>
+          <input type="username" id="groupname" class="form-control" name="groupname"/>
+        </div><br>
+          <button type="submit" class="btn btn-primary btn-block mb-4" id="create">Create Group</button>
+        </ul>
+      </form>
+  </div>
+
+</div>

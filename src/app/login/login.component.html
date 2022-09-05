@@ -3,8 +3,8 @@
     <div class="col-sm-2 sidenav">
     </div>
     <div class="col-sm-8 text-left">
-      <h1 id="loginhead">Login</h1>
-      <form>
+      <h1 id="loginhead">Admin Login</h1>
+      <form id="form1">
         <div class="form-outline">
           <label class="form-label" for="username">Username</label>
           <input type="username" id="username" class="form-control" [(ngModel)]="user.username" name="username"/>
@@ -13,7 +13,18 @@
           <input type="password" id="password" class="form-control" [(ngModel)]="user.password" name="password"/>
         </div><br>
         <button type="submit" class="btn btn-primary btn-block mb-4" id="login" (click)="loginfunc()">Sign In</button>
+      </form><br><br>
+    </div>
+    <div class="col-sm-8 text-left">
+      <h1 id="loginhead2">New User</h1>
+      <form id="form2">
+        <div class="form-outline">
+          <label class="form-label" for="username">Username</label>
+          <input type="username" id="usernamenewuser" class="form-control" [(ngModel)]="newuser.username" name="username"/>
+        </div><br>
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="login2" (click)="loginfunc2()">Sign In</button>
       </form>
     </div>
   </div>
 </div>
+<button (click)="clear()" style="margin-left: 100em">CLEAR SESSION</button>

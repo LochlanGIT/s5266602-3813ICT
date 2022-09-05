@@ -8,6 +8,7 @@ import { ChatComponent } from './chat/chat.component';
 import {FormsModule} from "@angular/forms";
 import { RoomlistComponent } from './roomlist/roomlist.component';
 import { RoomaddComponent } from './roomadd/roomadd.component';
+import { RoomgrouplistComponent } from './roomgrouplist/roomgrouplist.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RoomaddComponent } from './roomadd/roomadd.component';
     LoginComponent,
     ChatComponent,
     RoomlistComponent,
-    RoomaddComponent
+    RoomaddComponent,
+    RoomgrouplistComponent
   ],
     imports: [
         BrowserModule,

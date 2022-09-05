@@ -13,6 +13,10 @@ class User {
   password: any;
 }
 
+class NewUser {
+  username: any;
+}
+
 @Component({
   providers: [AppComponent],
   selector: 'app-login',
@@ -21,6 +25,8 @@ class User {
 })
 export class LoginComponent implements OnInit {
   user: User = {username: "", password: ""};
+  newuser: NewUser = {username: ""};
+  admin = false;
 
   constructor(private router: Router, private httpClient: HttpClient, private comp: AppComponent) {}
   ngOnInit() {}
@@ -28,13 +34,26 @@ export class LoginComponent implements OnInit {
     this.httpClient.post(BACKEND_URL + '/login', this.user, httpOptions)
       .subscribe((data: any) => {
         if (data.ok) {
-          // sessionStorage.setItem('username', this.userpwd.username);
-          // sessionStorage.setItem('userbirthdate', this.userobj.userbirthdate);
-          // sessionStorage.setItem('userage', (2022-this.userobj.userbirthdate.slice(0, 4)).toString());
-          this.router.navigateByUrl('chat');
+          this.admin = true;
+          sessionStorage.setItem('admin', String(this.admin));
+          sessionStorage.setItem('username', this.user.username);
+          this.router.navigateByUrl('roomgrouplist/'+this.user.username);
         } else {
           alert('Sorry, username or password is not valid');
         }
       });
+  }
+
+  loginfunc2() {
+    if (this.newuser.username) {
+      sessionStorage.setItem('username', this.newuser.username);
+      this.router.navigateByUrl('roomgrouplist/'+this.newuser.username);
+    } else {
+      alert('Please enter a valid value.')
+    }
+  }
+
+  clear() {
+    sessionStorage.clear();
   }
 }

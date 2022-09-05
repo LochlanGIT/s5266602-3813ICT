@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-roomlist',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./roomlist.component.css']
 })
 export class RoomlistComponent implements OnInit {
+  username = sessionStorage.getItem('username');
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) {
+  }
+
 
   ngOnInit(): void {
   }
