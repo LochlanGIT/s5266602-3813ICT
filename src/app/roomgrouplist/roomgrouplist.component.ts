@@ -10,6 +10,7 @@ export class RoomgrouplistComponent implements OnInit {
   username = sessionStorage.getItem('username');
   admin = sessionStorage.getItem('admin')
   isAdmin = false;
+  groupname: any;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -21,6 +22,10 @@ export class RoomgrouplistComponent implements OnInit {
 
   sendtoroom() {
     this.router.navigateByUrl('roomlist/:groupname/'+this.username);
+  }
+
+  creategroup() {
+
   }
 
 }

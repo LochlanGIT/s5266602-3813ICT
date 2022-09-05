@@ -10,9 +10,9 @@
         <ul>
         <div class="form-outline">
           <label class="form-label" for="groupname">Group Name</label>
-          <input type="username" id="groupname" class="form-control" name="groupname"/>
+          <input type="username" id="groupname" class="form-control" name="groupname" [(ngModel)]="groupname"/>
         </div><br>
-          <button type="submit" class="btn btn-primary btn-block mb-4" id="create">Create Group</button>
+          <button type="submit" class="btn btn-primary btn-block mb-4" id="create" (click)="creategroup()">Create Group</button>
         </ul>
       </form>
   </div>
