@@ -7,13 +7,15 @@ import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './chat/chat.component';
 import {FormsModule} from "@angular/forms";
 import { RoomlistComponent } from './roomlist/roomlist.component';
+import { RoomaddComponent } from './roomadd/roomadd.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ChatComponent,
-    RoomlistComponent
+    RoomlistComponent,
+    RoomaddComponent
   ],
     imports: [
         BrowserModule,
