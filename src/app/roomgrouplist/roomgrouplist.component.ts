@@ -25,7 +25,11 @@ export class RoomgrouplistComponent implements OnInit {
   }
 
   creategroup() {
+    if (this.groupname) {
 
+    } else {
+      alert('Please enter a valid value.')
+    }
   }
 
 }

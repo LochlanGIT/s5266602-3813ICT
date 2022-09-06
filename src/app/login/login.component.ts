@@ -52,8 +52,4 @@ export class LoginComponent implements OnInit {
       alert('Please enter a valid value.')
     }
   }
-
-  clear() {
-    sessionStorage.clear();
-  }
 }

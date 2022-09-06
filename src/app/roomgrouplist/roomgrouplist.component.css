@@ -19,3 +19,9 @@ label {
   margin-left: 36.7vw;
   width: 30em;
 }
+#alluser {
+  position:absolute;
+  top: 1em;
+  right: 7em;
+  width: 12em;
+}
