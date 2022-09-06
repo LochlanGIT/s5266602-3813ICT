@@ -11,6 +11,8 @@ export class RoomgrouplistComponent implements OnInit {
   admin = sessionStorage.getItem('admin')
   isAdmin = false;
   groupname: any;
+  createdgroup = false;
+  noarray = [""];
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -20,16 +22,21 @@ export class RoomgrouplistComponent implements OnInit {
     }
   }
 
-  sendtoroom() {
-    this.router.navigateByUrl('roomlist/:groupname/'+this.username);
+  sendtogroup() {
+    this.router.navigateByUrl('roomgrouplist/'+this.groupname+'/roomlist/'+this.username);
+    sessionStorage.setItem('groupname', this.groupname);
   }
 
   creategroup() {
     if (this.groupname) {
-
+      this.noarray.push("");
+      this.createdgroup = true;
     } else {
       alert('Please enter a valid value.')
     }
   }
+
+  DelBtn = delIndex => this.noarray.splice(delIndex, 1);
+
 
 }

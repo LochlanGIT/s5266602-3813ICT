@@ -1,8 +1,14 @@
 <div>
   <h2>Group List</h2>
   <ul>
-    <button class="btn btn-primary btn-block mb-4" (click)="sendtoroom()">Default Group</button>
-    <button class="btn btn-primary btn-block mb-4" (click)="sendtoroom()" *ngIf="isAdmin">Hidden Group</button>
+    <button class="btn btn-primary btn-block mb-4" (click)="groupname='defaultgroup'; sendtogroup()" >Default Group</button>
+    <button class="btn btn-primary btn-block mb-4" (click)="groupname='hiddengroup';sendtogroup()" *ngIf="isAdmin">Hidden Group</button><br>
+    <ng-container *ngFor="let i of noarray; let j = index">
+      <div *ngIf="createdgroup">
+        <button class="btn btn-primary btn-block mb-4" (click)="sendtogroup()" *ngIf="isAdmin">{{groupname}}</button>
+        <button type="button" class="btn btn-danger" (click)="DelBtn(j)">Delete</button>
+      </div>
+    </ng-container>
   </ul>
   <div *ngIf="isAdmin">
       <h2 id="loginhead2">Create New Group</h2>
@@ -12,10 +18,10 @@
           <label class="form-label" for="groupname">Group Name</label>
           <input type="username" id="groupname" class="form-control" name="groupname" [(ngModel)]="groupname"/>
         </div><br>
-          <button type="submit" class="btn btn-primary btn-block mb-4" id="create" (click)="creategroup()">Create Group</button>
+          <button type="submit" class="btn btn-primary btn-block mb-4" id="create" (click)=creategroup()>Create Group</button>
         </ul>
       </form>
   </div>
-  <button *ngIf="isAdmin" class="btn btn-info" id="alluser">View All Known Users</button>
-
+  <button *ngIf="isAdmin" class="btn btn-info" id="alluser" routerLink="knownusers">View All Known Users</button>
 </div>
+

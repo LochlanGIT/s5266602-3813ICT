@@ -19,5 +19,12 @@
     "email": "groupassis@email.com",
     "id": "3",
     "role": "groupassis"
+  },
+  {
+    "username": "default",
+    "password": "default",
+    "email": "default@email.com",
+    "id": "4",
+    "role": "default"
   }
 ]

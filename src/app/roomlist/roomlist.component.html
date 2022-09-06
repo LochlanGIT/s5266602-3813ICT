@@ -1,6 +1,20 @@
 <div>
   <h2>Room List</h2>
-  <ul>
-
-  </ul>
+    <ul>
+      <button class="btn btn-primary btn-block mb-4" (click)="channelname='default1'; sendtoroom()">Default Channel #1</button>
+      <button class="btn btn-primary btn-block mb-4" (click)="channelname='default2'; sendtoroom()">Default Channel #2</button>
+    </ul>
+    <div *ngIf="isAdmin">
+      <h2 id="loginhead2">Create New Group</h2>
+      <form id="form2">
+        <ul>
+          <div class="form-outline">
+            <label class="form-label" for="channelname">Group Name</label>
+            <input type="username" id="channelname" class="form-control" name="channelname" [(ngModel)]="channelname"/>
+          </div><br>
+          <button type="submit" class="btn btn-primary btn-block mb-4" id="create" (click)="createchannel()">Create Channel</button>
+        </ul>
+      </form>
+    </div>
 </div>
+
