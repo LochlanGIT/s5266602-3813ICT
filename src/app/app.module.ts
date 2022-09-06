@@ -9,6 +9,7 @@ import {FormsModule} from "@angular/forms";
 import { RoomlistComponent } from './roomlist/roomlist.component';
 import { RoomaddComponent } from './roomadd/roomadd.component';
 import { RoomgrouplistComponent } from './roomgrouplist/roomgrouplist.component';
+import { KnownusersComponent } from './knownusers/knownusers.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RoomgrouplistComponent } from './roomgrouplist/roomgrouplist.component'
     ChatComponent,
     RoomlistComponent,
     RoomaddComponent,
-    RoomgrouplistComponent
+    RoomgrouplistComponent,
+    KnownusersComponent
   ],
     imports: [
         BrowserModule,
