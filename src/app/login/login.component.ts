@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   user: User = {username: "", password: ""};
   newuser: NewUser = {username: ""};
   admin = false;
+  groupassis = false;
 
   constructor(private router: Router, private httpClient: HttpClient, private comp: AppComponent) {}
   ngOnInit() {}
@@ -34,10 +35,19 @@ export class LoginComponent implements OnInit {
     this.httpClient.post(BACKEND_URL + '/login', this.user, httpOptions)
       .subscribe((data: any) => {
         if (data.ok) {
-          this.admin = true;
-          sessionStorage.setItem('admin', String(this.admin));
-          sessionStorage.setItem('username', this.user.username);
-          this.router.navigateByUrl('roomgrouplist/'+this.user.username);
+          console.log(this.user.username)
+          if (this.user.username == "groupassis") {
+            this.groupassis = true;
+            sessionStorage.setItem('username', this.user.username);
+            sessionStorage.setItem('groupassis', String(this.groupassis));
+            this.router.navigateByUrl('roomgrouplist/'+this.user.username);
+          } else {
+            this.admin = true;
+            sessionStorage.setItem('admin', String(this.admin));
+            sessionStorage.setItem('username', this.user.username);
+            this.router.navigateByUrl('roomgrouplist/'+this.user.username);
+          }
+
         } else {
           alert('Sorry, username or password is not valid');
         }

@@ -2,14 +2,20 @@
   <h2>Room List</h2>
     <ul>
       <button class="btn btn-primary btn-block mb-4" (click)="channelname='default1'; sendtoroom()">Default Channel #1</button>
-      <button class="btn btn-primary btn-block mb-4" (click)="channelname='default2'; sendtoroom()">Default Channel #2</button>
+      <button class="btn btn-primary btn-block mb-4" (click)="channelname='default2'; sendtoroom()">Default Channel #2</button><br>
+      <ng-container *ngFor="let i of namearray; let j = index">
+        <div>
+          <button class="btn btn-primary btn-block mb-4" (click)="sendtoroom()" *ngIf="isGroupAssis||isAdmin">{{namearray[j]}}</button>
+          <button type="button" class="btn btn-danger" id="delbutt" (click)="delchannel(j)">Delete</button>
+        </div><br>
+      </ng-container>
     </ul>
-    <div *ngIf="isAdmin">
-      <h2 id="loginhead2">Create New Group</h2>
+    <div *ngIf="isGroupAssis||isAdmin">
+      <h2 id="loginhead2">Create New Channel</h2>
       <form id="form2">
         <ul>
           <div class="form-outline">
-            <label class="form-label" for="channelname">Group Name</label>
+            <label class="form-label" for="channelname">Channel Name</label>
             <input type="username" id="channelname" class="form-control" name="channelname" [(ngModel)]="channelname"/>
           </div><br>
           <button type="submit" class="btn btn-primary btn-block mb-4" id="create" (click)="createchannel()">Create Channel</button>

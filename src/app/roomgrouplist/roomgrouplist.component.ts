@@ -11,12 +11,17 @@ export class RoomgrouplistComponent implements OnInit {
   admin = sessionStorage.getItem('admin')
   isAdmin = false;
   groupname: any;
-  createdgroup = false;
-  noarray = [""];
+  groupncurrent: any;
+  namearray = [""];
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
+  delgroup(delIndex) {
+    this.namearray.splice(delIndex, 1);
+  }
+
   ngOnInit(): void {
+    this.delgroup(0)
     if (this.admin === "true") {
       this.isAdmin = true;
     }
@@ -29,14 +34,13 @@ export class RoomgrouplistComponent implements OnInit {
 
   creategroup() {
     if (this.groupname) {
-      this.noarray.push("");
-      this.createdgroup = true;
+      this.groupncurrent = this.groupname;
+      this.namearray.push(this.groupncurrent);
     } else {
       alert('Please enter a valid value.')
     }
   }
 
-  DelBtn = delIndex => this.noarray.splice(delIndex, 1);
 
 
 }
