@@ -1,33 +1,47 @@
-<div>
+<div id="userstable">
   <h2>List of Known Users</h2>
   <table class="table">
     <thead>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Username</th>
-      <th scope="col">E-Mail</th>
       <th scope="col">Role</th>
+      <th scope="col">Email</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>super</td>
-      <td>superuser@email.com</td>
-      <td>superadmin</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>groupadmin</td>
-      <td>groupadmin@email.com</td>
-      <td>groupadmin</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>groupassis</td>
-      <td>groupassis@email.com</td>
-      <td>groupassis</td>
+    <tr *ngFor="let user of USERS">
+      <td>{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.role}}</td>
+      <td>{{user.email}}</td>
     </tr>
     </tbody>
   </table>
+  <br><div>
+    <h2 id="loginhead2">Create New User</h2>
+    <form id="form2">
+      <ul>
+        <div class="form-outline">
+          <label class="form-label" for="id">ID</label>
+          <input type="number" id="id" class="form-control" name="id" [(ngModel)]="identification"/>
+
+          <label class="form-label" for="newuser">Username</label>
+          <input type="username" id="newuser" class="form-control" name="newuser" [(ngModel)]="newuser"/>
+
+          <label class="form-label" for="roles">Role</label>
+          <select class="form-control" name="roles" id="roles" [(ngModel)]="newuserrole">
+            <option value="super" *ngIf="isSuper">Super</option>
+            <option value="groupadmin" *ngIf="isSuper">Group Admin</option>
+            <option value="groupassis">Group Assistant</option>
+            <option value="normal">Normal User</option>
+          </select>
+
+          <label class="form-label" for="email">Email</label>
+          <input type="email" id="email" class="form-control" name="newuser" [(ngModel)]="newemail"/>
+        </div><br>
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="create" (click)=createuser()>Create User</button>
+      </ul>
+    </form>
+  </div>
 </div>
